@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>CDrama Tracker</title>
 </head>
+
 <body>
     <%- include('partials/navbar') %>
-    
+        <div class="container mt-4">
+            <h2 class="text-start mb-4">Add Drama</h2>
+
+            <form action="/addDrama" method="POST">
+
+                <div class="mb-3">
+                    <label for="dramaName">Drama Name:</label>
+                    <input type="text" name="dramaName" class="form-control" placeholder="Drama Name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="ratings">Rating:</label>
+                    <select name="ratings" class="form-select">
+                        <option>1/5</option>
+                        <option>2/5</option>
+                        <option>3/5</option>
+                        <option>4/5</option>
+                        <option>5/5</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="comments">Comments:</label>
+                    <textarea name="comments" class="form-control" placeholder="Comments"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Add Drama
+                </button>
+
+            </form>
+
+        </div>
+
 </body>
+
 </html>
