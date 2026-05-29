@@ -13,7 +13,7 @@
 
     <h1 class="text-start mb-4">CDrama Lists</h1>
     <table class="table table-bordered">
-        <thead class="table-dark">
+        <thead>
             <tr>
                 <th>Drama Name</th>
                 <th>Ratings</th>
@@ -22,6 +22,17 @@
                 <th>Delete</th>
             </tr>
         </thead>
+
+        <tbody>
+            <% dramaList.forEach((drama, index) => { %>
+                <tr>
+                    <td><%= drama.dramaName %></td>
+                    <td><%= drama.ratings %></td>
+                    <td><%= drama.comments %></td>
+                    <td><a href="/edit/<%= index %>" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/delete/<%= index %>" class="btn btn-danger">Delete</a></td>
+                </tr>
+            <% }) %>
     </table>
 
     <p>Do customise this App accordingly</p>
