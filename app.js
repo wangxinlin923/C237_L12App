@@ -23,7 +23,7 @@ let dramaList = [
 
 //Define a route to render the index page
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { dramaList });
 });
 
 // ---------------------------------------------------
