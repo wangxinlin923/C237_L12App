@@ -26,6 +26,9 @@ app.get('/', (req, res) => {
     res.render('index', { dramaList });
 });
 
+app.get('/addDrama', (req, res) => {
+    res.render('addDrama')
+});
 // ---------------------------------------------------
 
 // Start the server
