@@ -51,6 +51,18 @@ app.get('/updateDrama/:id', (req, res) => {
     //Render the updateDrama page and pass the specific drama data and ID for rendering
     res.render('updateDrama', { drama, id });
 });
+
+app.post('/updateDrama/:id', (req, res) => {
+    const id = req.params.id;
+    //Update the specific drama data in the dramaList array using the ID and the form data from req.body
+    dramaList[id] = {
+        dramaName: req.body.dramaName,
+        ratings: req.body.ratings,
+        comments: req.body.comments
+    };
+    //Redirect back to the homepage after updating the drama data
+    res.redirect('/');
+});
 // ---------------------------------------------------
 
 // Start the server
