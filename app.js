@@ -29,6 +29,19 @@ app.get('/', (req, res) => {
 app.get('/addDrama', (req, res) => {
     res.render('addDrama')
 });
+
+app.post('/addDrama', (req, res) => {
+    //Retrieve form data
+    const newDrama = {
+        dramaName: req.body.dramaName,
+        ratings: req.body.ratings,
+        comments: req.body.comments
+    };
+    //Save into array
+    dramaList.push(newDrama);
+    //Redirect back to the homepage 
+    res.redirect('/');
+});      
 // ---------------------------------------------------
 
 // Start the server
