@@ -63,6 +63,15 @@ app.post('/updateDrama/:id', (req, res) => {
     //Redirect back to the homepage after updating the drama data
     res.redirect('/');
 });
+
+app.get('/delete/:id', (req, res) => {
+    //Retrieve the ID from the URL
+    const id = req.params.id;
+    // Remove the drama from the array
+    dramaList.splice(id, 1);
+    //Redirect back to the homepage after deleting the drama data
+    res.redirect('/');
+});
 // ---------------------------------------------------
 
 // Start the server
