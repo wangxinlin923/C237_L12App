@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +8,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>CDrama Tracker</title>
 </head>
+
 <body>
     <!-- Activity 4: Insert code here to include the header (found in the partials folder) to your page -->
     <%- include('partials/navbar') %>
+        <div class="container mt-4">
+            <h1 class="text-start mb-4">CDrama Lists</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Drama Name</th>
+                        <th>Ratings</th>
+                        <th>Comments</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
 
-    <h1 class="text-start mb-4">CDrama Lists</h1>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Drama Name</th>
-                <th>Ratings</th>
-                <th>Comments</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
+                <tbody>
+                    <% dramaList.forEach((drama, index)=> { %>
+                        <tr>
+                            <td>
+                                <%= drama.dramaName %>
+                            </td>
+                            <td>
+                                <%= drama.ratings %>
+                            </td>
+                            <td>
+                                <%= drama.comments %>
+                            </td>
+                            <td><a href="/edit/<%= index %>" class="btn btn-warning">Edit</a></td>
+                            <td><a href="/delete/<%= index %>" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                        <% }) %>
+            </table>
 
-        <tbody>
-            <% dramaList.forEach((drama, index) => { %>
-                <tr>
-                    <td><%= drama.dramaName %></td>
-                    <td><%= drama.ratings %></td>
-                    <td><%= drama.comments %></td>
-                    <td><a href="/edit/<%= index %>" class="btn btn-warning">Edit</a></td>
-                    <td><a href="/delete/<%= index %>" class="btn btn-danger">Delete</a></td>
-                </tr>
-            <% }) %>
-    </table>
-
-    <p>Do customise this App accordingly</p>
-    <p>test</p>
+            <p>Do customise this App accordingly</p>
+            <p>test</p>
+        </div>
 </body>
+
 </html>
